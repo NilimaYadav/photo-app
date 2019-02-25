@@ -4,7 +4,6 @@ export default DS.RESTSerializer.extend({
 	normalizeResponse(store,primaryModelClass,payload,id,requestType)
 	{
 		payload={photos:payload};
-		
 		return this._super(store,primaryModelClass,payload,id,requestType);
 	},
 	normalizeSingleResponse(store,primaryModelClass,payload,id,requestType)
@@ -13,12 +12,12 @@ export default DS.RESTSerializer.extend({
 	return this._super(store,primaryModelClass,payload,id,requestType);
 
 },
-normalizeArrayResponse(store,primaryModelClass,payload,id,requestType)
+	normalizeArrayResponse(store,primaryModelClass,payload,id,requestType)
 {
-payload.photos.forEach((photo)=>{
-	photo.user=photo.userId;
+	payload.photos.forEach((photo)=>{
+		photo.user=photo.userId;
 
 });
-return this._super(store,primaryModelClass,payload,id,requestType);
+	return this._super(store,primaryModelClass,payload,id,requestType);
 }
 }); 

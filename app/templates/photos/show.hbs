@@ -1,37 +1,23 @@
-
-	<div class="col-xs-8 col-xs-offset-2 col-sm-offset-2 col-sm-8 col-md-6 col-md-offset-3">
-      <h2>image preview</h2>
-<p><img src="{{model.url}}"></p>
-   <button type="button" class="btn btn-primary">
-<a href="" download={{model.url}}>Download</a>
-
-   </button>
-  
-	
-	<button class="btn btn-primary btncustom">{{#link-to 'photos'}}<a href=""  class="homebtn">Home</a>{{/link-to}}
-	</button>
-
-<button type="button" class="btn btn-default btn-sm " id="cust">
-          <span class="glyphicon glyphicon-thumbs-up">Like </span> 
-</button>
-        <section class="comments">
-          {{input type="text" placeholder="Comment" value=commentValue autofocus=true}}
-          <button {{action 'addComment' commentValue}}> 
-            Comment
-          </button> 
-          {{#if comments.length}}
-            {{#each comments as |comment|}}
-              {{comment-component text=comment.description}}
-            {{/each}}
-          {{else}}
-            No comments found.
-          {{/if}}      
-        </section>  
-      {{!-- {{input value=text enter="update" placeholder='Enter Comment'}} --}}
-    </div> 
-    
- 	 
-   
+<div class="col-xs-8 col-xs-offset-2 col-sm-offset-2 col-sm-8 col-md-6 col-md-offset-3">
+  <h2>image preview</h2>
+  <p><img src={{model.url}} alt="image preview"></p>
+  <a href="" download={{model.url}}>Download</a>  
+  <button class="btn btn-primary btncustom">{{#link-to "photos"}}Home{{/link-to}}</button>
+  <button type="button" class="btn btn-default btn-sm " id="cust">
+    <span class="glyphicon glyphicon-thumbs-up">Like </span> 
+  </button>
+  <section class="comments">
+    {{input type="text" placeholder="Comment" value=commentValue autofocus=true}}
+    <button {{action "addComment" commentValue}}>Comment</button>  
+    {{#if comments.length}}
+      {{#each comments as |comment|}}
+        {{comment-component text=comment.description}}
+      {{/each}}
+    {{else}}
+      No comments found.
+    {{/if}}      
+  </section>       
+</div>    
 {{outlet}}
 
 

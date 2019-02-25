@@ -1,6 +1,6 @@
-import Ember from 'ember';
-const{ Route,set}=Ember;
-
+import Route from '@ember/routing/route'
+// import Ember from 'ember';
+import { set } from '@ember/object';
 export default Route.extend({
 	model() {		
 		return this.store.findAll('photo');
@@ -9,12 +9,9 @@ export default Route.extend({
 	setupController(controller,model){
 		set(controller,'photos',model);
 	},
-	actions: {
+	actions:{
         move(photo){
-        	debugger
-            this.get('router').transitionTo('photos.show', photo.get('id'));
-     	}
+			this.get('router').transitionTo('photos.show', photo.get('id'));
+		}	
     }
-
-
 });

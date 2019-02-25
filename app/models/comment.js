@@ -4,6 +4,4 @@ export default DS.Model.extend({
 
 	description: DS.attr('string'),
 	photo: DS.belongsTo('photo')
-	
-
 });
